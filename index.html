@@ -1,41 +1,752 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Desde la Tierra</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#080e18">
+  <title>Desde la Tierra</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <main>
-        <section class="hero">
-            <div class="hero-content">
-                <p class="eyebrow">TRANSMISIÓN TERRESTRE</p>
-                <h1>nidansidnasjihfuiasa</h1>
-                <p class="intro">
-                    Temp temp
-                </p>
-                <a href="#proyecto" class="button">Continuar</a>
-            </div>
-        </section>
+<div class="terminal">
+  <header class="topbar">
+    <div class="brand">
+      <span class="status-light"></span>
+      <span>RED DE COMUNICACIONES TERRESTRES</span>
+    </div>
+    <div class="topbar-right">TRANSMISIÓN ACTIVA</div>
+  </header>
 
-        <section id="proyecto" class="section">
-            <div class="section-content">
-                <p class="section-label">01</p>
-                <h2>El proyecto</h2>
-                <p>
-                    Arashkjfabdg blasbdad.
-                </p>
-                <div class="placeholder">
-                    Contenido próximamente.
-                </div>
-            </div>
-        </section>
+  <main>
+    <!-- 01 - RECEPCIÓN -->
+    <section class="screen active" id="screen-1">
+      <div class="screen-content welcome">
+        <p class="eyebrow">SEÑAL RECIBIDA // 01</p>
+        <div class="signal-icon" aria-hidden="true">
+          <div class="signal-ring ring-1"></div>
+          <div class="signal-ring ring-2"></div>
+          <div class="signal-ring ring-3"></div>
+          <div class="signal-core"></div>
+        </div>
+        <h1>Desde la Tierra</h1>
+        <p class="subtitle">Hay un mensaje esperando ser recibido.</p>
 
-        <footer>
-            <p>TIERRA · 2026</p>
-        </footer>
-    </main>
+        <div class="data-panel">
+          <div><span>ORIGEN</span><strong>TIERRA</strong></div>
+          <div><span>DESTINO</span><strong>DESCONOCIDO</strong></div>
+          <div>
+            <span>ESTADO</span>
+            <strong class="green">LISTO PARA REPRODUCIR</strong>
+          </div>
+        </div>
+
+        <button class="primary-button" onclick="showScreen(2)">
+          ABRIR TRANSMISIÓN <span>→</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- 02 - REGISTROS DE VUELO -->
+    <section class="screen" id="screen-2">
+      <div class="screen-content gallery-section">
+        <div class="section-heading">
+          <p class="eyebrow">REGISTRO DE MISIÓN // 02</p>
+          <h2>Registros de vuelo</h2>
+          <p class="section-intro">
+            Algunas imágenes de nuestras operaciones en la Tierra.
+          </p>
+          <div class="archive-meta">
+            <span>ARCHIVO 01 / 03</span>
+            <span>08 REGISTROS</span>
+          </div>
+        </div>
+
+        <div class="story-gallery" id="flight-gallery"></div>
+
+        <div class="gallery-ending">
+          <span>FIN DEL ARCHIVO 01</span>
+        </div>
+
+        <div class="screen-actions">
+          <button class="secondary-button" onclick="showScreen(1)">
+            <span>←</span> VOLVER
+          </button>
+          <button class="primary-button" onclick="showScreen(3)">
+            CONTINUAR <span>→</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 03 - REGISTRO PERSONAL -->
+    <section class="screen" id="screen-3">
+      <div class="screen-content gallery-section">
+        <div class="section-heading">
+          <p class="eyebrow">ARCHIVO PERSONAL // 03</p>
+          <h2>Registro personal</h2>
+          <p class="section-intro">
+            Diez registros de la integrante más importante
+            de esta misión.
+          </p>
+          <div class="archive-meta">
+            <span>ARCHIVO 02 / 03</span>
+            <span>10 FOTOGRAFÍAS</span>
+          </div>
+        </div>
+
+        <div class="story-gallery" id="personal-gallery"></div>
+
+        <div class="gallery-ending">
+          <span>FIN DEL ARCHIVO 02</span>
+        </div>
+
+        <div class="screen-actions">
+          <button class="secondary-button" onclick="showScreen(2)">
+            <span>←</span> VOLVER
+          </button>
+          <button class="primary-button" onclick="showScreen(4)">
+            CONTINUAR <span>→</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 04 - REGISTRO DE TRIPULACIÓN -->
+    <section class="screen" id="screen-4">
+      <div class="screen-content gallery-section">
+        <div class="section-heading">
+          <p class="eyebrow">PERSONAL DE MISIÓN // 04</p>
+          <h2>Registro de tripulación</h2>
+          <p class="section-intro">
+            Ninguna misión se lleva adelante en soledad.
+          </p>
+          <div class="archive-meta">
+            <span>ARCHIVO 03 / 03</span>
+            <span>25 FOTOGRAFÍAS</span>
+          </div>
+        </div>
+
+        <div class="story-gallery" id="group-gallery"></div>
+
+        <div class="gallery-ending">
+          <span>FIN DEL ARCHIVO 03</span>
+        </div>
+
+        <div class="screen-actions">
+          <button class="secondary-button" onclick="showScreen(3)">
+            <span>←</span> VOLVER
+          </button>
+          <button class="primary-button" onclick="showScreen(5)">
+            VER INFORME <span>→</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 05 - ESTADÍSTICAS -->
+    <section class="screen" id="screen-5">
+      <div class="screen-content stats-screen">
+        <p class="eyebrow">INFORME DE MISIÓN // 05</p>
+        <h2>Estadísticas</h2>
+        <p class="section-intro">
+          Datos recopilados durante las operaciones.
+        </p>
+
+        <div class="stat-counter">
+          REGISTRO <span id="stat-current">01</span> / 08
+        </div>
+
+        <div class="stat-stage" aria-live="polite">
+          <div class="stat-card" id="stat-card">
+            <p class="stat-category" id="stat-category"></p>
+            <div class="stat-number" id="stat-number"></div>
+            <p class="stat-description" id="stat-description"></p>
+            <p class="stat-note" id="stat-note"></p>
+          </div>
+        </div>
+
+        <div class="stat-progress">
+          <div class="stat-progress-fill" id="stat-progress-fill"></div>
+        </div>
+
+        <div class="screen-actions">
+          <button class="secondary-button" onclick="previousStat()">
+            <span>←</span> VOLVER
+          </button>
+          <button class="primary-button" id="stat-next" onclick="nextStat()">
+            SIGUIENTE REGISTRO <span>→</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 06 - UN 7 DE NOVIEMBRE -->
+    <section class="screen" id="screen-6">
+      <div class="screen-content history-screen">
+        <p class="eyebrow">ARCHIVO HISTÓRICO // 06</p>
+        <h2>Un 7 de noviembre</h2>
+        <p class="section-intro">
+          Tres acontecimientos espaciales que comparten una fecha.
+        </p>
+
+        <!-- 2008: CYGNUS TRIO -->
+        <article class="main-history">
+          <div class="history-date">07 NOVIEMBRE 2008</div>
+          <h3>Una postal desde Cygnus</h3>
+          <p class="history-lead">
+            El día de tu nacimiento, esta imagen fue publicada como
+            la fotografía astronómica del día.
+          </p>
+
+          <figure class="history-figure">
+            <img
+              src="images/7-11/CygnusTrio_Metsavainio.jpg"
+              alt="Cygnus Trio, con nebulosas de la constelación del Cisne"
+              loading="lazy"
+            >
+            <figcaption>
+              CYGNUS TRIO — J-P METSÄVAINIO
+            </figcaption>
+          </figure>
+
+          <p class="history-description">
+            La imagen reúne tres nebulosas de la constelación
+            del Cisne: la Nebulosa de la Mariposa,
+            la Nebulosa Creciente y la Nebulosa del Tulipán.
+            Una coincidencia bastante apropiada para esta fecha.
+          </p>
+
+          <a
+            class="source-link"
+            href="https://apod.nasa.gov/apod/ap081107.html"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            CONSULTAR PUBLICACIÓN ORIGINAL ↗
+          </a>
+        </article>
+
+        <!-- 2007: STS-120 -->
+        <article class="secondary-history">
+          <div class="secondary-history-image">
+            <img
+              src="images/7-11/sts120.jpg"
+              alt="Regreso de la misión STS-120 del transbordador Discovery"
+              loading="lazy"
+            >
+          </div>
+
+          <div class="secondary-history-content">
+            <p class="secondary-label">TAMBIÉN EN ESTA FECHA</p>
+            <p class="secondary-date">07 NOVIEMBRE 2007</p>
+            <h3>Discovery regresa a la Tierra — STS-120</h3>
+            <p>
+              El transbordador Discovery aterrizó tras completar la misión
+              STS-120. Durante ese vuelo coincidieron por primera vez dos
+              mujeres al mando en el espacio: Pamela Melroy, comandante
+              del transbordador, y Peggy Whitson, comandante de la
+              Estación Espacial Internacional.
+            </p>
+            <a
+              class="source-link"
+              href="https://www.nasa.gov/mission/sts-120/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              MÁS INFORMACIÓN ↗
+            </a>
+          </div>
+        </article>
+
+        <!-- 1996: MARS GLOBAL SURVEYOR -->
+        <article class="secondary-history">
+          <div class="secondary-history-image">
+            <img
+              src="images/7-11/Mars_global_surveyor.jpg"
+              alt="Sonda espacial Mars Global Surveyor"
+              loading="lazy"
+            >
+          </div>
+
+          <div class="secondary-history-content">
+            <p class="secondary-label">TAMBIÉN EN ESTA FECHA</p>
+            <p class="secondary-date">07 NOVIEMBRE 1996</p>
+            <h3>Comienza el viaje de Mars Global Surveyor</h3>
+            <p>
+              La NASA lanzó esta sonda rumbo a Marte.
+              Una vez allí, pasó años estudiando y cartografiando
+              la superficie del planeta rojo.
+            </p>
+            <a
+              class="source-link"
+              href="https://science.nasa.gov/mission/mars-global-surveyor/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              MÁS INFORMACIÓN ↗
+            </a>
+          </div>
+        </article>
+
+        <div class="screen-actions">
+          <button class="secondary-button" onclick="showScreen(5)">
+            <span>←</span> VOLVER
+          </button>
+          <button class="primary-button" onclick="showScreen(7)">
+            CONTINUAR <span>→</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 07 - MENSAJE FINAL -->
+    <section class="screen" id="screen-7">
+      <div class="screen-content final-screen">
+        <p class="eyebrow">MENSAJE DE LA TIERRA // 07</p>
+        <div class="final-symbol">✳</div>
+        <h2>Un mensaje desde la Tierra</h2>
+
+        <div class="final-message">
+          <p>
+            Esperamos que este breve archivo te ponga la misma sonrisa
+            que tu frecuente presencia nos brinda a nosotros.
+          </p>
+
+          <p>
+            Nos alegra haberte conocido, estamos muy orgullosos de vos
+            y esperamos que esto sea solo el comienzo de muchos años
+            más de risas y alegría.
+          </p>
+
+          <p>Feliz cumpleaños, te queremos mucho.</p>
+
+          <p class="message-date">
+            Mendoza, 7 de noviembre de 2026
+          </p>
+        </div>
+
+        <div class="final-actions">
+          <button class="secondary-button" onclick="showScreen(6)">
+            <span>←</span> VOLVER
+          </button>
+          <button class="secondary-button" onclick="restartTransmission()">
+            ↺ VOLVER AL INICIO
+          </button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-label">
+      <span id="screen-counter">01 / 07</span>
+      <span>RED TERRESTRE</span>
+    </div>
+    <div class="progress-track">
+      <div class="progress-fill" id="progress-fill"></div>
+    </div>
+  </footer>
+</div>
+
+<script>
+  /*
+   * ARCHIVOS MULTIMEDIA
+   * Se respeta el nombre y la extensión de cada archivo.
+   */
+
+  const galleries = {
+    flight: {
+      folder: "images/vuelo/",
+      elementId: "flight-gallery",
+      title: "REGISTROS DE VUELO",
+      media: [
+        { file: "vu-1.JPEG", type: "photo" },
+        { file: "vu-2.JPG", type: "photo" },
+        { file: "vu-3.MP4", type: "video" },
+        { file: "vu-4.JPEG", type: "photo" },
+        { file: "vu-5.jpeg", type: "photo" },
+        { file: "vu-6.jpeg", type: "photo" },
+        { file: "vu-7.jpeg", type: "photo" },
+        { file: "vu-8.jpeg", type: "photo" }
+      ]
+    },
+
+    personal: {
+      folder: "images/merce/",
+      elementId: "personal-gallery",
+      title: "REGISTRO PERSONAL",
+      media: [
+        { file: "me-1.JPEG", type: "photo" },
+        { file: "me-2.jpeg", type: "photo" },
+        { file: "me-3.jpeg", type: "photo" },
+        { file: "me-4.jpeg", type: "photo" },
+        { file: "me-5.jpeg", type: "photo" },
+        { file: "me-6.jpeg", type: "photo" },
+        { file: "me-7.jpeg", type: "photo" },
+        { file: "me-8.jpeg", type: "photo" },
+        { file: "me-9.jpeg", type: "photo" },
+        { file: "me-10.jpeg", type: "photo" }
+      ]
+    },
+
+    group: {
+      folder: "images/grupo/",
+      elementId: "group-gallery",
+      title: "REGISTRO DE TRIPULACIÓN",
+      media: [
+        { file: "gr-1.JPEG", type: "photo" },
+        { file: "gr-2.jpg", type: "photo" },
+        { file: "gr-3.jpeg", type: "photo" },
+        { file: "gr-4.JPG", type: "photo" },
+        { file: "gr-5.jpeg", type: "photo" },
+        { file: "gr-6.JPG", type: "photo" },
+        { file: "gr-7.jpeg", type: "photo" },
+        { file: "gr-8.jpeg", type: "photo" },
+        { file: "gr-9.jpeg", type: "photo" },
+        { file: "gr-10.jpeg", type: "photo" },
+        { file: "gr-11.jpeg", type: "photo" },
+        { file: "gr-12.jpeg", type: "photo" },
+        { file: "gr-13.jpeg", type: "photo" },
+        { file: "gr-14.jpeg", type: "photo" },
+        { file: "gr-15.jpeg", type: "photo" },
+        { file: "gr-16.jpeg", type: "photo" },
+        { file: "gr-17.jpeg", type: "photo" },
+        { file: "gr-18.jpeg", type: "photo" },
+        { file: "gr-19.jpeg", type: "photo" },
+        { file: "gr-20.jpeg", type: "photo" },
+        { file: "gr-21.jpeg", type: "photo" },
+        { file: "gr-22.jpeg", type: "photo" },
+        { file: "gr-23.jpeg", type: "photo" },
+        { file: "gr-24.jpeg", type: "photo" },
+        { file: "gr-25.jpeg", type: "photo" }
+      ]
+    }
+  };
+
+  /*
+   * GALERÍAS
+   */
+
+  function buildGalleries() {
+    for (const gallery of Object.values(galleries)) {
+      const container = document.getElementById(gallery.elementId);
+      const total = gallery.media.length;
+
+      gallery.media.forEach((media, index) => {
+        const figure = document.createElement("figure");
+        figure.className = "story-item";
+
+        const featured =
+          index === 0 ||
+          (gallery.elementId === "group-gallery"
+            ? index % 6 === 0
+            : index % 5 === 0);
+
+        if (featured) {
+          figure.classList.add("story-featured");
+        }
+
+        const frame = document.createElement("div");
+        frame.className = "story-frame";
+
+        if (media.type === "video") {
+          figure.classList.add("story-video");
+
+          const video = document.createElement("video");
+          video.controls = true;
+          video.preload = "metadata";
+          video.playsInline = true;
+          video.setAttribute(
+            "aria-label",
+            "Registro audiovisual de vuelo"
+          );
+
+          const source = document.createElement("source");
+          source.src = gallery.folder + media.file;
+          source.type = "video/mp4";
+
+          video.appendChild(source);
+          video.appendChild(document.createTextNode(
+            "Tu navegador no puede reproducir este video."
+          ));
+          frame.appendChild(video);
+        } else {
+          const img = document.createElement("img");
+          img.src = gallery.folder + media.file;
+          img.alt = `Fotografía ${index + 1} de ${gallery.title}`;
+          img.loading = "lazy";
+          img.decoding = "async";
+
+          const fallback = document.createElement("div");
+          fallback.className = "story-fallback";
+          fallback.textContent = "IMAGEN NO DISPONIBLE";
+          fallback.hidden = true;
+
+          img.addEventListener("error", () => {
+            img.hidden = true;
+            fallback.hidden = false;
+          });
+
+          frame.appendChild(img);
+          frame.appendChild(fallback);
+        }
+
+        const caption = document.createElement("figcaption");
+        caption.className = "story-caption";
+
+        const label = document.createElement("span");
+        label.textContent =
+          media.type === "video"
+            ? "REGISTRO AUDIOVISUAL"
+            : "FOTOGRAFÍA";
+
+        const number = document.createElement("span");
+        number.textContent =
+          String(index + 1).padStart(2, "0") +
+          " / " +
+          String(total).padStart(2, "0");
+
+        caption.appendChild(label);
+        caption.appendChild(number);
+
+        figure.appendChild(frame);
+        figure.appendChild(caption);
+        container.appendChild(figure);
+      });
+    }
+  }
+
+  /*
+   * REVELADO AL DESPLAZARSE
+   */
+
+  function setupScrollReveals() {
+    const items = document.querySelectorAll(".story-item");
+
+    if (
+      !("IntersectionObserver" in window) ||
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    ) {
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        root: null,
+        rootMargin: "0px 0px -40px 0px",
+        threshold: 0.08
+      }
+    );
+
+    items.forEach(item => {
+      item.classList.add("reveal-ready");
+      observer.observe(item);
+    });
+  }
+
+  /*
+   * NAVEGACIÓN
+   */
+
+  let currentScreen = 1;
+  const totalScreens = 7;
+
+  function showScreen(number) {
+    if (number < 1 || number > totalScreens) return;
+
+    const nextScreen = document.getElementById("screen-" + number);
+    if (!nextScreen) return;
+
+    document.querySelectorAll(".screen").forEach(screen => {
+      screen.classList.remove("active");
+    });
+
+    nextScreen.classList.add("active");
+    currentScreen = number;
+
+    document.getElementById("screen-counter").textContent =
+      String(number).padStart(2, "0") +
+      " / " +
+      String(totalScreens).padStart(2, "0");
+
+    document.getElementById("progress-fill").style.width =
+      (number / totalScreens * 100) + "%";
+
+    document.querySelectorAll("video").forEach(video => {
+      if (!video.closest(".screen.active")) {
+        video.pause();
+      }
+    });
+
+    window.scrollTo({ top: 0, behavior: "instant" });
+  }
+
+  /*
+   * ESTADÍSTICAS SECUENCIALES
+   */
+
+  const stats = [
+    {
+      category: "OPERACIONES AÉREAS",
+      number: "15",
+      description: "Ingresos sin permiso a espacio aéreo controlado",
+      note: ""
+    },
+    {
+      category: "INCIDENTES",
+      number: "01",
+      description: "Emergencias",
+      note: ""
+    },
+    {
+      category: "GESTIÓN DE TRÁNSITO",
+      number: "09",
+      description: "Aviones con motor dejados en espera",
+      note: ""
+    },
+    {
+      category: "GESTIÓN DE TRIPULACIÓN",
+      number: "67",
+      description:
+        "Veces que te enojaste con los alumnos por no hacer nada y te quedaste callada",
+      note: ""
+    },
+    {
+      category: "OPERACIONES EN TIERRA",
+      number: "01",
+      description:
+        "Veces que te dejaron abandonada en la pista de tierra",
+      note: ""
+    },
+    {
+      category: "TÉCNICA DE VUELO",
+      number: "01",
+      description: "Aterrizajes sin rebote",
+      note: "Uno más que el Franco 👏"
+    },
+    {
+      category: "COMUNICACIONES",
+      number: "69",
+      description:
+        "Veces que malpensaste cosas totalmente inocentes que dijimos",
+      note: "Unos re problemitas tenés."
+    },
+    {
+      category: "RECONOCIMIENTO DE TRIPULACIÓN",
+      number: "∞",
+      description: "Veces que nos sentimos orgullosos de vos",
+      note: "ERROR 0x∞ — VALOR FUERA DE RANGO",
+      final: true
+    }
+  ];
+
+  let currentStat = 0;
+
+  function renderStat() {
+    const stat = stats[currentStat];
+    const card = document.getElementById("stat-card");
+
+    card.classList.remove("stat-final", "stat-enter");
+    void card.offsetWidth;
+
+    document.getElementById("stat-current").textContent =
+      String(currentStat + 1).padStart(2, "0");
+
+    document.getElementById("stat-category").textContent =
+      stat.category;
+
+    document.getElementById("stat-number").textContent =
+      stat.number;
+
+    document.getElementById("stat-description").textContent =
+      stat.description;
+
+    document.getElementById("stat-note").textContent =
+      stat.note;
+
+    if (stat.final) {
+      card.classList.add("stat-final");
+    }
+
+    card.classList.add("stat-enter");
+
+    document.getElementById("stat-progress-fill").style.width =
+      ((currentStat + 1) / stats.length * 100) + "%";
+
+    document.getElementById("stat-next").innerHTML =
+      currentStat === stats.length - 1
+        ? 'CONTINUAR <span>→</span>'
+        : 'SIGUIENTE REGISTRO <span>→</span>';
+  }
+
+  function nextStat() {
+    if (currentStat < stats.length - 1) {
+      currentStat++;
+      renderStat();
+    } else {
+      showScreen(6);
+    }
+  }
+
+  function previousStat() {
+    if (currentStat > 0) {
+      currentStat--;
+      renderStat();
+    } else {
+      showScreen(4);
+    }
+  }
+
+  function restartTransmission() {
+    currentStat = 0;
+    renderStat();
+    showScreen(1);
+  }
+
+  /*
+   * TECLADO
+   */
+
+  document.addEventListener("keydown", event => {
+    if (
+      event.target instanceof HTMLElement &&
+      event.target.closest(
+        "a, button, input, textarea, select, video"
+      )
+    ) {
+      return;
+    }
+
+    if (event.key === "ArrowRight") {
+      if (currentScreen === 5) {
+        nextStat();
+      } else if (currentScreen < totalScreens) {
+        showScreen(currentScreen + 1);
+      }
+    }
+
+    if (event.key === "ArrowLeft") {
+      if (currentScreen === 5) {
+        previousStat();
+      } else if (currentScreen > 1) {
+        showScreen(currentScreen - 1);
+      }
+    }
+  });
+
+  buildGalleries();
+  setupScrollReveals();
+  renderStat();
+</script>
 </body>
 </html>
+
+<!-- Mensaje de tu comandante de traumahawk favorito: feliz cumpleaños, te quiero mucho <3 -->
